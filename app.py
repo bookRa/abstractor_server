@@ -12,7 +12,10 @@ from gensim import corpora, similarities
 import gensim.parsing.preprocessing as genpre
 import pickle
 from gensim.models import LdaModel
-from nltk.stem.wordnet import WordNetLemmatizer
+import nltk
+# from nltk.stem.wordnet import WordNetLemmatizer
+nltk.data.path.append('./models/')
+
 
 app = Flask(__name__)
 CORS(app)
@@ -26,7 +29,7 @@ class NumpyEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
 
 
-lmtzr= WordNetLemmatizer()
+lmtzr= nltk.stem.wordnet.WordNetLemmatizer()
 def prep_text(text):
      #this regex removes LATEX formatting, numbers, citations, splits hyphens into two words
     myreg=r'\\[\w]+[\{| ]|\$[^\$]+\$|\(.+\, *\d{2,4}\w*\)|\S*\/\/\S*|[\\.,\/#!$%\^&\*;:{}=_`\'\"~()><\|]|\[.+\]|\d+|\b\w{1,2}\b'
