@@ -10,7 +10,7 @@ chardet==3.0.4
 Click==7.0
 conda==4.8.1
 conda-package-handling==1.6.0
-cryptography==2.8
+cryptography==3.2
 docutils==0.15.2
 Flask==1.1.1
 Flask-Cors==3.0.8
